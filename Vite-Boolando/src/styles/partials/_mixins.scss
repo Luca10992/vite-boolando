@@ -1,0 +1,15 @@
+@mixin align($axis: 'default') {
+    display: flex;
+
+    @if ($axis == 'both') {
+        justify-content: center;
+        align-items: center;
+    } @else if ($axis == 'horizontal') {
+        justify-content: center;
+    } @else if ( $axis == 'vertical') {
+        align-items: center;
+    } @else if ($axis == 'between') {
+        justify-content: space-between;
+        align-items: center;
+    }
+}

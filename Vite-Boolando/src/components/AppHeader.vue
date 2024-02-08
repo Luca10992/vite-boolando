@@ -2,7 +2,14 @@
   export default {
         data() {
             return {
+                logo: 'boolean-logo.png'
                 
+            }
+        },
+
+        methods: {
+            buildImagePath(imageName) {
+                return new URL('../assets/img/' + imageName, import.meta.url).href;
             }
         }
     }
@@ -11,8 +18,64 @@
 
 <template>
 
+    <header>
+
+        <div class="container header-container">
+            <div>
+                <ul>
+                    <li>Donna</li>
+                    <li>Uomo</li>
+                    <li>Bambino</li>
+                </ul>
+            </div>
+            <div class="logo-box">
+                <img :src="buildImagePath(logo)" alt="logo">
+            </div>
+            <div>
+                <ul>
+                    <li><i class="fa-regular fa-user"></i></li>
+                    <li><i class="fa-regular fa-heart"></i></li>
+                    <li><i class="fa-solid fa-bag-shopping"></i></li>
+                </ul>
+            </div>
+        </div>
+
+    </header>
+
 </template>
 
-<style>
+<style lang="scss">
+    @use '../styles/generals.scss' as *;
+    @use '../styles/partials/mixins' as *;
+    @use '../styles/partials/variables' as *;
+
+header {
+    background-color: #ff6900;
+    box-shadow: 0px 0px 1px 0px;
+}
+
+.header-container {
+    color: white;
+    font-weight: bold;
+    height: 60px;
+    @include align('between');
+
+        li {
+            cursor: pointer;
+            margin: 0 10px;
+        }
+
+        li:hover {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .logo-box {
+            text-align: center;
+        }
+
+        img {
+            width: 20%;
+        }
+}
 
 </style>

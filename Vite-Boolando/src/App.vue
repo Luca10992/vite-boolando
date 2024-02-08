@@ -32,5 +32,5 @@
 </template>
 
 <style lang="scss">
-  @use '../src/styles/generals.scss'
+  @use '../src/styles/generals.scss';
 </style>

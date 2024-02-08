@@ -1,2 +1,17 @@
 @use '../styles/partials/variables' as *;
 @use '../styles/partials/mixins' as *;
+
+* {
+    box-sizing: border-box;
+    margin: 0 auto;
+    padding: 0;
+}
+
+.container {
+    width: 80%;
+}
+
+ul {
+    list-style: none;
+    @include align('default');
+}
