@@ -23,7 +23,7 @@
                 </ul>
             </div>
             <div>
-                <h5>{{ footer.footerTitle }}</h5>
+                <h5>{{ footer.socialText }}</h5>
                 <ul>
                     <li v-for="socialIcon in footer.socialIcons"><i :class="socialIcon"></i></li>
                 </ul>
@@ -67,6 +67,11 @@
                 opacity: 0.8;
             }
         }
+    }
+
+    i:hover {
+        cursor: pointer;
+        opacity: 0.8;
     }
 }
 

@@ -45,6 +45,10 @@
     @use '../styles/partials/variables' as *;
 
 header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1;
     background-color: #ff6900;
     box-shadow: 0px 0px 1px 0px;
 }

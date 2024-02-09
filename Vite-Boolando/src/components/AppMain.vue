@@ -160,6 +160,7 @@
 
     .main-container {
         padding: 2rem;
+        padding-top: 6rem;
         @include align('default');
         flex-wrap: wrap;
         gap: 10px;
