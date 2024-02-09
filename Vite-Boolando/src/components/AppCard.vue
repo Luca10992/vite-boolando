@@ -40,6 +40,7 @@
         &:hover {
             opacity: 0.8;
             cursor: pointer;
+            border: 2px solid lightgray;
         }
 
         .none {

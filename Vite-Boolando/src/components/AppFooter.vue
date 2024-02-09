@@ -1,16 +1,11 @@
 <script>
     export default {
-        data() {
-            return {
-                footer: {
-                    footerTitle: 'Boolando s.r.l.',
-                    infos: [
-                        'Informazioni legali',
-                        'Informativa sulla privacy',
-                        'Diritto di recesso',
-                    ]
-                }
-            }
+        props: {
+            footer: Object,
+            footerTitle: String,
+            infos: Array,
+            socialText: String,
+            socialIcons: Array,
         }
     }
 
@@ -20,14 +15,19 @@
 
     <footer>
 
-        <div class="footer-container">
+        <div class="container footer-container">
             <div>
                 <h5>{{ footer.footerTitle }}</h5>
                 <ul>
                     <li v-for="info in footer.infos"><a href="#">{{ info }}</a></li>
                 </ul>
             </div>
-            <div></div>
+            <div>
+                <h5>{{ footer.footerTitle }}</h5>
+                <ul>
+                    <li v-for="socialIcon in footer.socialIcons"><i :class="socialIcon"></i></li>
+                </ul>
+            </div>
         </div>
 
     </footer>
@@ -45,10 +45,15 @@
 }
 
 .footer-container {
+    padding: 0 2rem;
     color: white;
     font-weight: bold;
     height: 60px;
     @include align('between');
+
+    div {
+        margin: 0;
+    }
 
     li {
         margin: 0 5px;

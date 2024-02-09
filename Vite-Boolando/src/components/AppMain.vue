@@ -149,17 +149,6 @@
                 :favourite="card.isInFavourite"
             >
             </AppCard>
-            <!-- <div v-for="card in cards" class="card">
-                <div class="box-img">
-                    <img @mouseover="card.spin = true" @mouseleave="card.spin = false" :src="buildImagePath(card.images.front)" :class="card.spin == true ? 'none' : 'spin'">
-                    <img @mouseover="card.spin = true" @mouseleave="card.spin = false" :src="buildImagePath(card.images.retro)" :class="card.spin == true ? 'spin' : 'none'">
-                </div>
-                <div class="box-text">
-                    <div class="brand">{{ card.brand }}</div>
-                    <div class="name">{{ card.name }}</div>
-                    <div class="price">{{ card.price + ' €' }}</div>
-                </div>
-            </div> -->
         </div>
     </main>
 </template>

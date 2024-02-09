@@ -1,10 +1,9 @@
 <script>
   export default {
-        data() {
-            return {
-                logo: 'boolean-logo.png',
-                categories:['Donna', 'Uomo', 'Bambino'],
-            }
+        props: {
+            logo: String,
+            categories: Array,
+            icons: Array,
         },
 
         methods: {
@@ -31,9 +30,7 @@
             </div>
             <div>
                 <ul>
-                    <li><i class="fa-regular fa-user"></i></li>
-                    <li><i class="fa-regular fa-heart"></i></li>
-                    <li><i class="fa-solid fa-bag-shopping"></i></li>
+                    <li v-for="icon in icons"><i :class="icon"></i></li>
                 </ul>
             </div>
         </div>
