@@ -2,8 +2,8 @@
   export default {
         data() {
             return {
-                logo: 'boolean-logo.png'
-                
+                logo: 'boolean-logo.png',
+                categories:['Donna', 'Uomo', 'Bambino'],
             }
         },
 
@@ -23,9 +23,7 @@
         <div class="container header-container">
             <div>
                 <ul>
-                    <li>Donna</li>
-                    <li>Uomo</li>
-                    <li>Bambino</li>
+                    <li v-for="category in categories">{{ category }}</li>
                 </ul>
             </div>
             <div class="logo-box">
@@ -44,7 +42,7 @@
 
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
     @use '../styles/generals.scss' as *;
     @use '../styles/partials/mixins' as *;
     @use '../styles/partials/variables' as *;
@@ -77,5 +75,4 @@ header {
             width: 20%;
         }
 }
-
 </style>
