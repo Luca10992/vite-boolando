@@ -1,0 +1,118 @@
+{
+  "cards": [
+    {
+      "id": 1,
+      "name": "RELAXED FIT TEE UNISEX",
+      "brand": "Levis",
+      "price": 29.99,
+      "isInFavourite": true,
+      "images": {
+        "front": "1.webp",
+        "retro": "1b.webp"
+      },
+      "badges": [
+        {
+          "type": "tag",
+          "value": "Sostenibilità"
+        },
+        {
+          "type": "discount",
+          "value": "-50%"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "ROSES TEE",
+      "brand": "Guess",
+      "price": 29.99,
+      "isInFavourite": false,
+      "images": {
+        "front": "2.webp",
+        "retro": "2b.webp"
+      },
+      "badges": [
+        {
+          "type": "discount",
+          "value": "-30%"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "VOGLIA DI COLORI PASTELLO",
+      "brand": "Come zucchero filato",
+      "price": 18.99,
+      "isInFavourite": true,
+      "images": {
+        "front": "3.webp",
+        "retro": "3b.webp"
+      },
+      "badges": [
+        {
+          "type": "discount",
+          "value": "-30%"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "TEE UNISEX",
+      "brand": "Levis",
+      "price": 29.99,
+      "isInFavourite": false,
+      "images": {
+        "front": "4.webp",
+        "retro": "4b.webp"
+      },
+      "badges": [
+        {
+          "type": "tag",
+          "value": "Sostenibilità"
+        },
+        {
+          "type": "discount",
+          "value": "-50%"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "STRIPE BODICE",
+      "brand": "Maya Deluxe",
+      "price": 99.99,
+      "isInFavourite": false,
+      "images": {
+        "front": "5.webp",
+        "retro": "5b.webp"
+      },
+      "badges": [
+        {
+          "type": "tag",
+          "value": "Sostenibilità"
+        },
+        {
+          "type": "discount",
+          "value": "-50%"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "name": "MAGLIONE - BLACK",
+      "brand": "Esprit",
+      "price": 29.99,
+      "isInFavourite": false,
+      "images": {
+        "front": "6.webp",
+        "retro": "6b.webp"
+      },
+      "badges": [
+        {
+          "type": "tag",
+          "value": "Sostenibilità"
+        }
+      ]
+    }
+  ]
+}
