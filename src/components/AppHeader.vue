@@ -1,9 +1,11 @@
 <script>
+import { store } from "../store";
+
 export default {
-  props: {
-    logo: String,
-    categories: Array,
-    icons: Array,
+  data() {
+    return {
+      store,
+    };
   },
 
   methods: {
@@ -19,15 +21,17 @@ export default {
     <div class="container header-container">
       <div>
         <ul>
-          <li v-for="category in categories">{{ category }}</li>
+          <li v-for="category in store.categories">{{ category }}</li>
         </ul>
       </div>
       <div class="logo-box">
-        <img :src="buildImagePath(logo)" alt="logo" />
+        <img :src="buildImagePath(store.logo)" alt="logo" />
       </div>
       <div>
         <ul>
-          <li v-for="icon in icons"><font-awesome-icon :icon="icon" /></li>
+          <li v-for="icon in store.icons">
+            <font-awesome-icon :icon="icon" />
+          </li>
         </ul>
       </div>
     </div>

@@ -5,7 +5,7 @@ import { library } from "@fortawesome/fontawesome-svg-core";
 
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
-import { faBagShopping } from "@fortawesome/free-solid-svg-icons";
+import { fas } from "@fortawesome/free-solid-svg-icons";
 
 import { faUser, faHeart } from "@fortawesome/free-regular-svg-icons";
 
@@ -25,7 +25,7 @@ library.add(
   faPinterest,
   faUser,
   faHeart,
-  faBagShopping
+  fas
 );
 const app = createApp(App);
 app.component("font-awesome-icon", FontAwesomeIcon);

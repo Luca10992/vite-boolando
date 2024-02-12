@@ -1,46 +1,12 @@
 <script>
 import AppCard from "./AppCard.vue";
-import { store } from "../store";
-import axios from "axios";
-export default {
-  data() {
-    return {
-      cards: [],
-
-      spin: false,
-    };
-  },
-
-  components: { AppCard },
-
-  methods: {
-    buildImagePath(imageName) {
-      return new URL("../assets/img/" + imageName, import.meta.url).href;
-    },
-  },
-
-  created() {
-    axios.get(`${store.apiUrl}/cards`).then((res) => {
-      this.cards = res.data;
-    });
-  },
-};
+export default { components: { AppCard } };
 </script>
 
 <template>
   <main>
     <div class="container main-container">
-      <AppCard
-        v-for="card in cards"
-        :frontImg="buildImagePath(card.images.front)"
-        :retroImg="buildImagePath(card.images.retro)"
-        :spin="card.spin"
-        :brand="card.brand"
-        :name="card.name"
-        :price="card.price"
-        :favourite="card.isInFavourite"
-      >
-      </AppCard>
+      <AppCard></AppCard>
     </div>
   </main>
 </template>

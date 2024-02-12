@@ -1,102 +1,129 @@
 <script>
-    export default {
-        props: {
-            frontImg: String,
-            retroImg: String,
-            brand: String,
-            name: String,
-            price: Number,
-            spin: Boolean,
-            favourite: Boolean,
-        },
-    }
+import { store } from "../store";
+import axios from "axios";
 
+export default {
+  data() {
+    return {
+      cards: [],
+
+      spin: false,
+    };
+  },
+
+  methods: {
+    buildImagePath(imageName) {
+      return new URL("../assets/img/" + imageName, import.meta.url).href;
+    },
+  },
+
+  created() {
+    axios.get(`${store.apiUrl}/cards`).then((res) => {
+      this.cards = res.data;
+    });
+  },
+};
 </script>
 
 <template>
-    <div class="card">
-        <div class="box-img">
-            <img @mouseover="spin = true" @mouseleave="spin = false" :src="frontImg" :class="spin == true ? 'none' : 'spin'">
-            <img @mouseover="spin = true" @mouseleave="spin = false" :src="retroImg" :class="spin == true ? 'spin' : 'none'">
-        </div>
-        <div class="box-text">
-            <div class="brand">{{ brand }}</div>
-            <div class="name">{{ name }}</div>
-            <div class="price">{{ price }}</div>
-        </div>
-        <div @click="favourite = !favourite" class="heart">
-            <div><i class="fa-solid fa-heart" :class="favourite == true ? 'favourite' : ''"></i></div>
-        </div>
+  <div class="card" v-for="card in this.cards">
+    <div class="box-img">
+      <img
+        @mouseover="card.spin = true"
+        @mouseleave="card.spin = false"
+        :src="buildImagePath(card.images.front)"
+        :class="card.spin == true ? 'none' : 'spin'"
+      />
+      <img
+        @mouseover="card.spin = true"
+        @mouseleave="card.spin = false"
+        :src="buildImagePath(card.images.retro)"
+        :class="card.spin == true ? 'spin' : 'none'"
+      />
     </div>
+    <div class="box-text">
+      <div class="brand">{{ card.brand }}</div>
+      <div class="name">{{ card.name }}</div>
+      <div class="price">{{ card.price }}</div>
+    </div>
+    <div @click="card.favourite = !card.favourite" class="heart">
+      <div>
+        <font-awesome-icon
+          icon="fa-solid fa-heart"
+          :class="card.favourite == true ? 'favourite' : ''"
+        />
+      </div>
+    </div>
+  </div>
 </template>
 
 <style lang="scss" scoped>
-    .card {
-        width: calc(100% / 3 - 10px);
-        border-radius: 10px;
-        overflow: hidden;
-        position: relative;
+.card {
+  width: calc(100% / 3 - 10px);
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
 
-        &:hover {
-            opacity: 0.8;
-            cursor: pointer;
-        }
+  &:hover {
+    opacity: 0.8;
+    cursor: pointer;
+  }
 
-        .none {
-            display: none;
-        }
+  .none {
+    display: none;
+  }
 
-        .spin {
-            display: block;
-        }
-        
-        img {
-            width: 100%;
-        }
+  .spin {
+    display: block;
+  }
 
-        .box-text {
-            border-radius: 0 0 10px 10px;
-            padding: 5px;
+  img {
+    width: 100%;
+  }
 
-            .brand {
-                font-size: 13px;
-            }
+  .box-text {
+    border-radius: 0 0 10px 10px;
+    padding: 5px;
 
-            .name {
-                font-weight: bold;
-            }
-        }
-
-        .badge {
-            position: absolute;
-            bottom: 7rem;
-            color: white;
-            padding: 3px;
-        }
-
-        .tag {
-            left: 2rem;
-            background-color: green;
-        }
-
-        .discount {
-            background-color: red;
-        }
-
-        .heart {
-            background-color: white;
-            padding: 10px;
-            position: absolute;
-            top: 1rem;
-            right: 0;
-
-            &:hover i{
-                color: red;
-            }
-        }
-
-        .favourite {
-            color: red;
-        }
+    .brand {
+      font-size: 13px;
     }
+
+    .name {
+      font-weight: bold;
+    }
+  }
+
+  .badge {
+    position: absolute;
+    bottom: 7rem;
+    color: white;
+    padding: 3px;
+  }
+
+  .tag {
+    left: 2rem;
+    background-color: green;
+  }
+
+  .discount {
+    background-color: red;
+  }
+
+  .heart {
+    background-color: white;
+    padding: 10px;
+    position: absolute;
+    top: 1rem;
+    right: 0;
+
+    &:hover i {
+      color: red;
+    }
+  }
+
+  .favourite {
+    color: red;
+  }
+}
 </style>

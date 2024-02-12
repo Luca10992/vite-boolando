@@ -1,11 +1,11 @@
 <script>
+import { store } from "../store";
+
 export default {
-  props: {
-    footer: Object,
-    footerTitle: String,
-    infos: Array,
-    socialText: String,
-    socialIcons: Array,
+  data() {
+    return {
+      store,
+    };
   },
 };
 </script>
@@ -14,17 +14,17 @@ export default {
   <footer>
     <div class="container footer-container">
       <div>
-        <h5>{{ footer.footerTitle }}</h5>
+        <h5>{{ store.footer.footerTitle }}</h5>
         <ul>
-          <li v-for="info in footer.infos">
+          <li v-for="info in store.footer.infos">
             <a href="#">{{ info }}</a>
           </li>
         </ul>
       </div>
       <div>
-        <h5>{{ footer.socialText }}</h5>
+        <h5>{{ store.footer.socialText }}</h5>
         <ul>
-          <li v-for="socialIcon in footer.socialIcons">
+          <li v-for="socialIcon in store.footer.socialIcons">
             <font-awesome-icon class="social-icon" :icon="socialIcon" />
           </li>
         </ul>
