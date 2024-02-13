@@ -31,9 +31,8 @@ export default {
     v-for="(card, index) in this.cards"
     @mouseover="card.spin = true"
     @mouseleave="card.spin = false"
-    @click="$emit('show-modal', index)"
   >
-    <div class="box-img">
+    <div class="box-img" @click="$emit('show-modal', index)">
       <img
         :src="buildImagePath(card.images.front)"
         :class="card.spin == true ? 'none' : 'spin'"

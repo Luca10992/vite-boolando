@@ -1,6 +1,5 @@
 <script>
 import { store } from "../store";
-import axios from "axios";
 
 export default {
   data() {
@@ -12,6 +11,14 @@ export default {
   methods: {
     closeModal() {
       store.modal.show = false;
+    },
+
+    addFavourite() {
+      store.modal.favourite = !store.modal.favourite;
+    },
+
+    addCart() {
+      store.modal.cart = true;
     },
   },
 };
@@ -29,13 +36,17 @@ export default {
         <div class="price">{{ store.modal.price }}</div>
         <div class="thumbnail">
           <div class="image-modal">
-            <div>
+            <div
+              :class="store.modal.current == store.modal.front ? 'active' : ''"
+            >
               <img
                 @click="store.modal.current = store.modal.front"
                 :src="store.modal.front"
               />
             </div>
-            <div>
+            <div
+              :class="store.modal.current == store.modal.retro ? 'active' : ''"
+            >
               <img
                 @click="store.modal.current = store.modal.retro"
                 :src="store.modal.retro"
@@ -44,19 +55,22 @@ export default {
           </div>
         </div>
         <select class="size">
-          <option value="Default">Seleziona la taglia...</option>
-          <option value="xs">Xs</option>
-          <option value="s">S</option>
-          <option value="m">M</option>
-          <option value="l">L</option>
-          <option value="xl">Xl</option>
-          <option value="xxl">Xxl</option>
+          <option selected>Seleziona la taglia...</option>
+          <option value="size" v-for="option in store.options">
+            {{ option }}
+          </option>
         </select>
+        <div v-if="store.modal.cart" class="add-product">
+          Articolo aggiunto al carrello
+        </div>
         <div class="favourite-cart">
-          <div class="favourite">
-            <font-awesome-icon icon="fa-solid fa-heart" />
+          <div class="favourite" @click="addFavourite()">
+            <font-awesome-icon
+              icon="fa-solid fa-heart"
+              :class="store.modal.favourite == true ? 'inFavourite' : ''"
+            />
           </div>
-          <div class="cart-shopping">
+          <div class="cart-shopping" @click="addCart()">
             <font-awesome-icon icon="fa-solid fa-cart-shopping" />
           </div>
         </div>
@@ -111,6 +125,11 @@ export default {
         }
       }
 
+      .active {
+        border: 2px solid #333;
+        opacity: 0.8;
+      }
+
       img {
         width: 100%;
         display: block;
@@ -155,6 +174,13 @@ export default {
         }
       }
 
+      .add-product {
+        margin-top: 1.5rem;
+        color: green;
+        font-size: 20px;
+        font-weight: bold;
+      }
+
       .favourite-cart {
         display: flex;
         position: absolute;
@@ -172,6 +198,10 @@ export default {
             opacity: 0.8;
             color: red;
           }
+        }
+
+        .inFavourite {
+          color: red;
         }
 
         .cart-shopping {

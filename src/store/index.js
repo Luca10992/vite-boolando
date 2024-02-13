@@ -18,13 +18,29 @@ export const store = reactive({
     ],
     socialText: "Trovaci anche su",
     socialIcons: [
-      "fa-brands fa-square-twitter",
-      "fa-brands fa-square-facebook",
-      "fa-brands fa-instagram",
-      "fa-brands fa-pinterest",
-      "fa-brands fa-square-youtube",
+      {
+        link: "https://twitter.com/i/flow/login",
+        icon: "fa-brands fa-square-twitter",
+      },
+      {
+        link: "https://www.facebook.com/?locale=it_IT",
+        icon: "fa-brands fa-square-facebook",
+      },
+      {
+        link: "https://www.instagram.com/",
+        icon: "fa-brands fa-instagram",
+      },
+      {
+        link: "https://www.pinterest.it/",
+        icon: "fa-brands fa-pinterest",
+      },
+      {
+        link: "https://www.youtube.com/",
+        icon: "fa-brands fa-square-youtube",
+      },
     ],
   },
+  options: ["Xs", "S", "M", "L", "Xl", "Xxl"],
   modal: {
     show: false,
     brand: "",
@@ -33,5 +49,7 @@ export const store = reactive({
     current: "",
     front: "",
     retro: "",
+    favourite: false,
+    cart: false,
   },
 });

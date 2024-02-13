@@ -32,6 +32,7 @@ export default {
       store.modal.current = this.buildImagePath(selectedCard.images.front);
       store.modal.front = this.buildImagePath(selectedCard.images.front);
       store.modal.retro = this.buildImagePath(selectedCard.images.retro);
+      store.modal.favourite = selectedCard.isInFavourite;
       store.modal.show = true;
     },
   },

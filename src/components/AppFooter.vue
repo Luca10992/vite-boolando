@@ -25,7 +25,9 @@ export default {
         <h5>{{ store.footer.socialText }}</h5>
         <ul>
           <li v-for="socialIcon in store.footer.socialIcons">
-            <font-awesome-icon class="social-icon" :icon="socialIcon" />
+            <a class="social-icon" :href="socialIcon.link" target="_blank">
+              <font-awesome-icon :icon="socialIcon.icon" />
+            </a>
           </li>
         </ul>
       </div>
@@ -68,9 +70,13 @@ footer {
     }
   }
 
-  .social-icon:hover {
-    cursor: pointer;
-    opacity: 0.8;
+  .social-icon {
+    font-size: 15px;
+
+    &:hover {
+      cursor: pointer;
+      opacity: 0.8;
+    }
   }
 }
 </style>
