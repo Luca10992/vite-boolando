@@ -26,17 +26,19 @@ export default {
 </script>
 
 <template>
-  <div class="card" v-for="card in this.cards">
+  <div
+    class="card"
+    v-for="(card, index) in this.cards"
+    @mouseover="card.spin = true"
+    @mouseleave="card.spin = false"
+    @click="$emit('show-modal', index)"
+  >
     <div class="box-img">
       <img
-        @mouseover="card.spin = true"
-        @mouseleave="card.spin = false"
         :src="buildImagePath(card.images.front)"
         :class="card.spin == true ? 'none' : 'spin'"
       />
       <img
-        @mouseover="card.spin = true"
-        @mouseleave="card.spin = false"
         :src="buildImagePath(card.images.retro)"
         :class="card.spin == true ? 'spin' : 'none'"
       />
@@ -44,14 +46,25 @@ export default {
     <div class="box-text">
       <div class="brand">{{ card.brand }}</div>
       <div class="name">{{ card.name }}</div>
-      <div class="price">{{ card.price }}</div>
+      <div :class="card.isInDiscount == true ? 'price' : ''">
+        {{ "€ " + card.price }}
+      </div>
     </div>
-    <div @click="card.favourite = !card.favourite" class="heart">
+    <div @click="card.isInFavourite = !card.isInFavourite" class="heart">
       <div>
         <font-awesome-icon
           icon="fa-solid fa-heart"
-          :class="card.favourite == true ? 'favourite' : ''"
+          :class="card.isInFavourite == true ? 'favourite' : ''"
         />
+      </div>
+    </div>
+    <div class="badge-box">
+      <div
+        v-for="badge in card.badges"
+        class="badge"
+        :class="badge.type == 'discount' ? 'discount' : ''"
+      >
+        {{ badge.value }}
       </div>
     </div>
   </div>
@@ -92,18 +105,25 @@ export default {
     .name {
       font-weight: bold;
     }
+
+    .price {
+      text-decoration: line-through;
+      color: lightgray;
+    }
   }
 
-  .badge {
+  .badge-box {
     position: absolute;
     bottom: 7rem;
     color: white;
     padding: 3px;
+    display: flex;
+    gap: 0.25rem;
   }
 
-  .tag {
-    left: 2rem;
+  .badge {
     background-color: green;
+    padding: 2px;
   }
 
   .discount {

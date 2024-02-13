@@ -6,18 +6,19 @@
       "brand": "Levis",
       "price": 29.99,
       "isInFavourite": true,
+      "isInDiscount": true,
       "images": {
         "front": "1.webp",
         "retro": "1b.webp"
       },
       "badges": [
         {
-          "type": "tag",
-          "value": "Sostenibilità"
-        },
-        {
           "type": "discount",
           "value": "-50%"
+        },
+        {
+          "type": "tag",
+          "value": "Sostenibilità"
         }
       ]
     },
@@ -27,6 +28,7 @@
       "brand": "Guess",
       "price": 29.99,
       "isInFavourite": false,
+      "isInDiscount": true,
       "images": {
         "front": "2.webp",
         "retro": "2b.webp"
@@ -44,6 +46,7 @@
       "brand": "Come zucchero filato",
       "price": 18.99,
       "isInFavourite": true,
+      "isInDiscount": true,
       "images": {
         "front": "3.webp",
         "retro": "3b.webp"
@@ -61,18 +64,19 @@
       "brand": "Levis",
       "price": 29.99,
       "isInFavourite": false,
+      "isInDiscount": true,
       "images": {
         "front": "4.webp",
         "retro": "4b.webp"
       },
       "badges": [
         {
-          "type": "tag",
-          "value": "Sostenibilità"
-        },
-        {
           "type": "discount",
           "value": "-50%"
+        },
+        {
+          "type": "tag",
+          "value": "Sostenibilità"
         }
       ]
     },
@@ -82,18 +86,19 @@
       "brand": "Maya Deluxe",
       "price": 99.99,
       "isInFavourite": false,
+      "isInDiscount": true,
       "images": {
         "front": "5.webp",
         "retro": "5b.webp"
       },
       "badges": [
         {
-          "type": "tag",
-          "value": "Sostenibilità"
-        },
-        {
           "type": "discount",
           "value": "-50%"
+        },
+        {
+          "type": "tag",
+          "value": "Sostenibilità"
         }
       ]
     },

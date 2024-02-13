@@ -25,4 +25,13 @@ export const store = reactive({
       "fa-brands fa-square-youtube",
     ],
   },
+  modal: {
+    show: false,
+    brand: "",
+    name: "",
+    price: "",
+    current: "",
+    front: "",
+    retro: "",
+  },
 });
