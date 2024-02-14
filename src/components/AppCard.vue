@@ -15,6 +15,16 @@ export default {
     buildImagePath(imageName) {
       return new URL("../assets/img/" + imageName, import.meta.url).href;
     },
+
+    applyDiscount(card) {
+      const discountPerc = parseInt(card.badges[0].value);
+      const discountCalc = ((card.price * discountPerc) / 100)
+        .toFixed(2)
+        .slice(1);
+      const discountPrice = (card.price - discountCalc).toFixed(2);
+      card.discountPrice = "€ " + discountPrice;
+      console.log(card.discountPrice);
+    },
   },
 
   created() {
@@ -45,8 +55,13 @@ export default {
     <div class="box-text">
       <div class="brand">{{ card.brand }}</div>
       <div class="name">{{ card.name }}</div>
-      <div :class="card.isInDiscount == true ? 'price' : ''">
-        {{ "€ " + card.price }}
+      <div class="box-price">
+        <div v-if="card.isInDiscount">
+          {{ card.discountPrice }}
+        </div>
+        <div :class="card.isInDiscount == true ? 'price' : ''">
+          {{ "€ " + card.price }}
+        </div>
       </div>
     </div>
     <div @click="card.isInFavourite = !card.isInFavourite" class="heart">
@@ -102,6 +117,13 @@ export default {
     }
 
     .name {
+      font-weight: bold;
+    }
+
+    .box-price {
+      display: flex;
+      gap: 5px;
+      color: red;
       font-weight: bold;
     }
 

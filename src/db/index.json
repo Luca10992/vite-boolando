@@ -5,6 +5,7 @@
       "name": "RELAXED FIT TEE UNISEX",
       "brand": "Levis",
       "price": 29.99,
+      "discountPrice": 0,
       "isInFavourite": true,
       "isInDiscount": true,
       "images": {
@@ -27,6 +28,7 @@
       "name": "ROSES TEE",
       "brand": "Guess",
       "price": 29.99,
+      "discountPrice": 0,
       "isInFavourite": false,
       "isInDiscount": true,
       "images": {
@@ -45,6 +47,7 @@
       "name": "VOGLIA DI COLORI PASTELLO",
       "brand": "Come zucchero filato",
       "price": 18.99,
+      "discountPrice": 0,
       "isInFavourite": true,
       "isInDiscount": true,
       "images": {
@@ -63,6 +66,7 @@
       "name": "TEE UNISEX",
       "brand": "Levis",
       "price": 29.99,
+      "discountPrice": 0,
       "isInFavourite": false,
       "isInDiscount": true,
       "images": {
@@ -85,6 +89,7 @@
       "name": "STRIPE BODICE",
       "brand": "Maya Deluxe",
       "price": 99.99,
+      "discountPrice": 0,
       "isInFavourite": false,
       "isInDiscount": true,
       "images": {
@@ -107,6 +112,7 @@
       "name": "MAGLIONE - BLACK",
       "brand": "Esprit",
       "price": 29.99,
+      "discountPrice": 0,
       "isInFavourite": false,
       "images": {
         "front": "6.webp",
