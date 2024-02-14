@@ -22,13 +22,21 @@ export default {
     buildImagePath(imageName) {
       return new URL("../assets/img/" + imageName, import.meta.url).href;
     },
+    applyDiscount(card) {
+      const discountPerc = parseInt(card.badges[0].value);
+      const discountCalc = ((card.price * discountPerc) / 100)
+        .toFixed(2)
+        .slice(1);
+      const discountPrice = (card.price - discountCalc).toFixed(2);
+      return (card.discountPrice = "€ " + discountPrice);
+    },
     cardOpen(index) {
       const selectedCard = this.cards[index];
 
       store.modal.brand = selectedCard.brand;
       store.modal.name = selectedCard.name;
       store.modal.brand = selectedCard.brand;
-      store.modal.price = selectedCard.price + " €";
+      store.modal.price = this.applyDiscount(selectedCard);
       store.modal.current = this.buildImagePath(selectedCard.images.front);
       store.modal.front = this.buildImagePath(selectedCard.images.front);
       store.modal.retro = this.buildImagePath(selectedCard.images.retro);

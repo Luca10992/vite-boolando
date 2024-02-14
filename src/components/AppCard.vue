@@ -22,8 +22,7 @@ export default {
         .toFixed(2)
         .slice(1);
       const discountPrice = (card.price - discountCalc).toFixed(2);
-      card.discountPrice = "€ " + discountPrice;
-      console.log(card.discountPrice);
+      return (card.discountPrice = "€ " + discountPrice);
     },
   },
 
@@ -57,7 +56,7 @@ export default {
       <div class="name">{{ card.name }}</div>
       <div class="box-price">
         <div v-if="card.isInDiscount">
-          {{ card.discountPrice }}
+          {{ applyDiscount(card) }}
         </div>
         <div :class="card.isInDiscount == true ? 'price' : ''">
           {{ "€ " + card.price }}
